@@ -1,3 +1,4 @@
+# 상승 패턴 알고리즘 "bbThrough"
 from pattern import basePattern
 import matplotlib.pyplot as plt
 import pylab as pl
@@ -80,6 +81,12 @@ class bbThrough(basePattern):
             for i in range(day):
                 if df.open[index - i - 1] < df.vhigh[index - i - 1] and df.close[index - i - 1] > df.vhigh[index - i - 1]:
                     return False
+
+        # 거래대금이 1억이하면 구매하지 않음
+        if 'totalPrice' in self.condition:
+            _totalPrice = self.condition['totalPrice']
+            if _totalPrice > df.volume[index] * df.price[index] :
+                return False
         """
         # 1. 볼린저밴드 상단 근접 3% 이내를 3일간 유지하였는가?
         df1 = df.price[index - 2:index + 1] >= df.vhigh[index - 2:index + 1] * 0.97

@@ -1,3 +1,5 @@
+
+
 # 현재 kind.krx.co.kr에 등록된 kospi, kosdaq, konex 종목의 주가데이터(날짜/시고저종/거래량)을 거래시작일부터 모두 가져오는 python code
 # naver의 챠트를 count 50000으로 직접 get한 결과를 list -> dataframe -> db 로 저장하는 방식이다.
 # 이렇게 하면 수정종가를 가져올 수 있다. 아 빡세..
@@ -89,12 +91,15 @@ if __name__ == "__main__":
         c.execute(q)
 
         # 종가기준이 확 변하면 , getNeed가 아니라 getAll을 호출하는 로직도 필요하겠는데?
+        # getNeed가 정상동작을 안하는 것으로 보여서 일단 getAll로 수행
+        """
         if c.fetchone()[0] == 1:
             getNeed(c, code)
             print("{0} : {1} get need".format(i, code))
         else:
-            getAll(code)
-            print("{0} : {1} all".format(i, code))
+            """
+        getAll(code)
+        print("{0} : {1} all".format(i, code))
 
         i = i + 1
 

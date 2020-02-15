@@ -49,6 +49,9 @@ def simulate(df, p, code):
             resultdict[code + " " + rdf.date.iloc[0]] = rdf
 
             if prof >= 1.0 :
+
+
+
                 p.showGraph(code, df, index-prePeriod, index, nextIndex, prof)
             else :
                 p.showGraph(code, df, index - prePeriod, index, nextIndex, prof)

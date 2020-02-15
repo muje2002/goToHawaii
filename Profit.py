@@ -1,4 +1,4 @@
-from scipy import stats as scistats
+from scipy.stats.mstats import gmean
 import numpy as np
 import environ as env
 import codecs
@@ -18,8 +18,8 @@ class Profit:
     def printGmean(self):
         if(self.profitlist.size == 0):
             return 1
-        print("{}, {:.4f}".format(self.profitlist['profit'].count(), scistats.gmean(self.profitlist['profit'].to_numpy())))
-        return scistats.gmean(self.profitlist['profit'].to_numpy())
+        print("{}, {:.4f}".format(self.profitlist['profit'].count(), gmean(self.profitlist['profit'].to_numpy())))
+        return gmean(self.profitlist['profit'].to_numpy())
 
     def printEach(self, p, f):
         # count
@@ -39,7 +39,7 @@ class Profit:
         f.write("\t산술평균 : {}\n".format(p.mean()))
 
         # 기하평균
-        f.write("\t기하평균 : {}\n".format(scistats.gmean(p)))
+        f.write("\t기하평균 : {}\n".format(gmean(p)))
         f.write("\n")
 
     def add(self, code, date, profit):
