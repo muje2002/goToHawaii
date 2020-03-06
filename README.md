@@ -19,7 +19,7 @@
 2. 전날 프로그램 로직 순서
     1) windows 자동프로그램을 이용하여 아래 python code가 장 마감날 4시에 자동으로 running 하도록 설정 
     2) webcrawling.py 를 실행하여 주가 data를 stock.db에 저장 <필요한 날짜만큼만 돌게 수정 필요>
-    3) proprocessing.py 를 실행하여 stock.db 로부터 pre.db를 생성 (이때 pre process는 bbThrough.py안의 함수)
+    3) preprocessing.py 를 실행하여 stock.db 로부터 pre.db를 생성 (이때 pre process는 bbThrough.py안의 함수)
     4) pre.db로부터 candidate 후보를 선택하여 candidate.json으로 저장 (bbTrough.py 에 함수 만들 것)
     
 3. 당일 프로그램 로직 순서    
