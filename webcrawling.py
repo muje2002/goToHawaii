@@ -42,7 +42,8 @@ def getNeed(c, code) :
             print("Exception in _query: %s" % e)
 
 def getAll(code) :
-    url = "https://fchart.stock.naver.com/sise.nhn?symbol={code}&timeframe=day&count=50000&requestType=0".format(code=code)
+    count = 5000
+    url = "https://fchart.stock.naver.com/sise.nhn?symbol={code}&timeframe=day&count={count}}&requestType=0".format(code=code, count=count)
 
     result = requests.get(url)
     bs_obj = BeautifulSoup(result.content, 'html.parser')

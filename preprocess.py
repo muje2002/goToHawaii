@@ -1,4 +1,5 @@
 # 주식 데이터가 저장되어 있는 df로부터 각종 다른 지표들을 계산하여 df 의 column에 삽입해주는 함수들
+# 지금은 사용 안함
 def getMA(df):
     # myprice
     myprice = df['close'] * 0.5 + (df['open'] + df['high'] + df['low'] + df['close']) / 4 * 0.5
